@@ -14,6 +14,8 @@ export default {
       fontFamily: {
         'bebas-neue': ['bebas-neue', 'sans-serif'],
         'creato-display': ['creato-display', 'sans-serif'],
+        'creato-display-regular': ['creato-display-regular', 'sans-serif'],
+        'creato-display-bold': ['creato-display-bold', 'sans-serif'],
         vogue: ['vogue', 'serif'],
       }
     },

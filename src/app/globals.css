@@ -15,6 +15,14 @@
     font-family: 'creato-display';
     src: url('/fonts/CreatoDisplay.otf') format('opentype');
   }
+  @font-face{
+    font-family: 'creato-display-regular';
+    src: url('/fonts/CreatoDisplayRegular.otf') format('opentype');
+  }
+  @font-face{
+    font-family: 'creato-display-bold';
+    src: url('/fonts/CreatoDisplayBold.otf') format('opentype');
+  }
 }
 
 @layer utilities {

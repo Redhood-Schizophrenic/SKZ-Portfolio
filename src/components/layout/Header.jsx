@@ -7,7 +7,7 @@ export default function Header() {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<section className="w-full flex items-center justify-between p-4 lg:text-3xl md:text-2xl text-xl">
+		<section className="w-full flex items-center justify-between p-4 lg:text-3xl md:text-2xl text-base text-transparent">
 			<button onClick={() => setIsOpen(true)}>
 				Menu
 			</button>
