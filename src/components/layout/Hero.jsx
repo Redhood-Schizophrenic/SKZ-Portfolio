@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { useMotionValueEvent, useScroll } from "framer-motion";
+import { useNavColor } from "@/contexts/NavColorProvider";
 
 // Make sure to register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -9,6 +11,21 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Hero() {
 	const containerRef = useRef(null);
 	const clipRef = useRef(null);
+	const ref = useRef(null);
+	const { scrollY } = useScroll();
+	const { setColor } = useNavColor();
+
+	useMotionValueEvent(scrollY, "change", (latest) => {
+		const secTop = ref?.current?.offsetTop;
+		const secHeight = ref?.current?.offsetHeight;
+
+		if (latest >= secTop && latest < secTop + secHeight) {
+			setColor("text-foreground");
+		} else {
+			setColor("text-background");
+		}
+	});
+
 
 	useEffect(() => {
 		// Initialize the animation when component mounts
