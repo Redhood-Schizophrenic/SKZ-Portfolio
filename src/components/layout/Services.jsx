@@ -41,7 +41,7 @@ export default function Services() {
 							</div>
 
 							<div className="flex justify-center items-center hover:scale-110 transition-all duration-700">
-								<h1 className={`text-6xl text-center font-vogue`}>
+								<h1 className={`md:text-6xl text-4xl text-center font-vogue`}>
 									{item.title}
 								</h1>
 							</div>

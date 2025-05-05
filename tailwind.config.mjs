@@ -10,11 +10,13 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "var(--primary)",
       },
       fontFamily: {
         'bebas-neue': ['bebas-neue', 'sans-serif'],
         'creato-display': ['creato-display', 'sans-serif'],
         'creato-display-regular': ['creato-display-regular', 'sans-serif'],
+        'creato-display-regular-italic': ['creato-display-regular-italic', 'sans-serif'],
         'creato-display-bold': ['creato-display-bold', 'sans-serif'],
         vogue: ['vogue', 'serif'],
       }

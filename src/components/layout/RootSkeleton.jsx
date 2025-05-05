@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Navbar from "./Navbar";
-import { CompanyName } from "@/constants/common";
 import { useState } from "react";
 import { useNavColor } from "@/contexts/NavColorProvider";
+import Image from "next/image";
 
 export default function RootSkeleton() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,15 @@ export default function RootSkeleton() {
 				<button onClick={() => setIsOpen(true)}>
 					Menu
 				</button>
-				<Link href={'/'} className="font-vogue">{CompanyName}</Link>
+				<Link href={'/'} className="font-vogue">
+					<Image
+						src={color === 'text-foreground' ? '/main/foreground.png' : '/main/background.png'}
+						height={100}
+						width={100}
+						alt="Logo"
+						className="leading-none transition-colors duration-300"
+					/>
+				</Link>
 				<h1>Lets talk</h1>
 				<Navbar onClose={() => setIsOpen(false)} isOpen={isOpen} />
 			</section>

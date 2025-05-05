@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from "react";
 import About from "@/components/layout/About";
 import Header from "@/components/layout/Header";
 import Hero from "@/components/layout/Hero";
@@ -8,8 +9,9 @@ import RootSkeleton from "@/components/layout/RootSkeleton";
 import { NavColorProvider } from "@/contexts/NavColorProvider";
 import Services from "@/components/layout/Services";
 import Works from "@/components/layout/Works";
-import { useEffect } from "react";
 import Lenis from "lenis";
+import TestimonialCarousel from "@/components/layout/Testimonials";
+import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   useEffect(() => {
@@ -31,6 +33,8 @@ export default function Home() {
           <About />
           <Services />
           <Works />
+          <TestimonialCarousel />
+          <Footer />
         </main>
       </NavColorProvider>
     </LoadingScreen>
