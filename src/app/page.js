@@ -12,6 +12,7 @@ import Works from "@/components/layout/Works";
 import Lenis from "lenis";
 import TestimonialCarousel from "@/components/layout/Testimonials";
 import Footer from "@/components/layout/Footer";
+import Hero3d from "@/components/layout/Hero3d";
 
 export default function Home() {
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function Home() {
       <NavColorProvider>
         <main id="root-layout" className="overflow-y-auto scroll-smooth">
           <Header />
-          <Hero />
+          <Hero3d />
           <RootSkeleton />
           <About />
           <Services />
