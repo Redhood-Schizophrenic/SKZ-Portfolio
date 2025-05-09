@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useCursorContext } from "@/contexts/CursorProvider";
 
 export default function TestimonialCarousel() {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isAnimating, setIsAnimating] = useState(false);
+	const { setScale } = useCursorContext();
 
 	const testimonials = [
 		{
@@ -70,7 +72,13 @@ export default function TestimonialCarousel() {
 
 	return (
 		<div className="relative w-full md:h-screen h-[120dvh] overflow-hidden">
-			<h1 className='md:text-8xl text-6xl mt-32 text-center font-bebas-neue'> Clients Testimonials </h1>
+			<h1
+				className='md:text-8xl text-6xl mt-32 text-center font-bebas-neue'
+				onMouseEnter={() => setScale(5)}
+				onMouseLeave={() => setScale(1)}
+			>
+				Clients Testimonials
+			</h1>
 			<div className="absolute w-full h-full flex items-center justify-center">
 				{testimonials.map((testimonial, index) => {
 					// Calculate position relative to current
@@ -126,6 +134,8 @@ export default function TestimonialCarousel() {
 							style={{
 								transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
 							}}
+							onMouseEnter={() => setScale(3)}
+							onMouseLeave={() => setScale(1)}
 						>
 							<div className="flex flex-col h-full justify-between">
 								<div>
@@ -145,6 +155,8 @@ export default function TestimonialCarousel() {
 					onClick={goToPrevious}
 					className="p-2 rounded-full bg-background shadow-md hover:bg-black transition-colors"
 					disabled={isAnimating}
+					onMouseEnter={() => setScale(2)}
+					onMouseLeave={() => setScale(1)}
 				>
 					<ChevronLeft size={20} />
 				</button>
@@ -152,6 +164,8 @@ export default function TestimonialCarousel() {
 					onClick={goToNext}
 					className="p-2 rounded-full bg-background shadow-md hover:bg-black transition-colors"
 					disabled={isAnimating}
+					onMouseEnter={() => setScale(2)}
+					onMouseLeave={() => setScale(1)}
 				>
 					<ChevronRight size={20} />
 				</button>

@@ -4,11 +4,13 @@ import { useRef } from "react";
 import { useNavColor } from "@/contexts/NavColorProvider";
 import { navLinks } from "@/constants/navLinks";
 import Link from "next/link";
+import { useCursorContext } from "@/contexts/CursorProvider";
 
 export default function Services() {
 	const ref = useRef(null);
 	const { scrollY } = useScroll();
 	const { setColor } = useNavColor();
+	const { setScale } = useCursorContext();
 
 	useMotionValueEvent(scrollY, "change", (latest) => {
 		const secTop = ref.current.offsetTop;
@@ -22,7 +24,7 @@ export default function Services() {
 	});
 
 	return (
-		<section ref={ref} className="min-h-screen w-full bg-foreground text-background">
+		<section ref={ref} className="min-h-screen w-full bg-foreground text-background transition-colors duration-500">
 			<WhatWeDo />
 			<div className="mt-10 px-6 w-full">
 				{
@@ -32,6 +34,8 @@ export default function Services() {
 							key={index}
 							className={`w-full min-h-64 grid grid-cols-3 gap-5 border-background relative 
 								${index === 0 ? 'border-y' : 'border-b'}`}
+							onMouseEnter={() => setScale(4)}
+							onMouseLeave={() => setScale(1)}
 						>
 
 							<div className="flex items-start justify-center p-4 hover:scale-110 transition-all duration-700">

@@ -95,3 +95,20 @@ html.lenis body {
 .absolute {
   will-change: transform, width, height, border-radius;
 }
+
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.15s ease-out, width 0.3s ease, height 0.3s ease;
+}
+
+.zoom-hover {
+  cursor: none;
+  transition: all 0.3s ease;
+}
+
+.zoom-hover:hover {
+  color: #f0f0f0;
+}

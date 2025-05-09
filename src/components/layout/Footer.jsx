@@ -1,17 +1,23 @@
 import { ArrowUpRight, Telescope } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useCursorContext } from "@/contexts/CursorProvider";
 
 export default function Footer() {
+	const { setScale } = useCursorContext();
 	return (
 		<div
 			className='relative h-screen'
 			style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
 		>
 			<div className='fixed bottom-0 h-screen w-full'>
-				<div className='bg-violet-950/50 py-8 md:px-12 px-4 h-full w-full flex flex-col justify-end'>
+				<div className='bg-gray-800/50 py-8 md:px-12 px-4 h-full w-full flex flex-col justify-end'>
 					<div className="mt-10 flex md:flex-row flex-col gap-10 items-center justify-between">
-						<div className="flex flex-col">
+						<div
+							className="flex flex-col"
+							onMouseEnter={() => setScale(4)}
+							onMouseLeave={() => setScale(1)}
+						>
 							<h2
 								className="flex items-center gap-4 text-sm"
 							>
@@ -23,12 +29,20 @@ export default function Footer() {
 								Feel free to reach out — We’d love to hear from you!
 							</p>
 						</div>
-						<div className="flex flex-col">
+						<div
+							className="flex flex-col"
+							onMouseEnter={() => setScale(4)}
+							onMouseLeave={() => setScale(1)}
+						>
 							<p className="text-gray-400 text-sm">Contact Sanskariezzz at:</p>
 							<Link href={'/'} className="text-lg font-creato-display-bold flex gap-2 items-center">admin@sanskariezzz.in <ArrowUpRight /> </Link>
 						</div>
 					</div>
-					<div className="mb-4 flex items-center justify-center mt-44">
+					<div
+						className="mb-4 flex items-center justify-center mt-44"
+						onMouseEnter={() => setScale(6)}
+						onMouseLeave={() => setScale(1)}
+					>
 						<Image src={'/main/foreground.png'} width={5000} height={5000} className="w-[60%] h-auto" alt=" Logo" />
 					</div>
 					<div className="flex md:flex-row flex-col items-center justify-between text-sm">

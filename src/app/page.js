@@ -12,7 +12,7 @@ import Works from "@/components/layout/Works";
 import Lenis from "lenis";
 import TestimonialCarousel from "@/components/layout/Testimonials";
 import Footer from "@/components/layout/Footer";
-import Hero3d from "@/components/layout/Hero3d";
+import { CursorContextProvider } from "@/contexts/CursorProvider";
 
 export default function Home() {
   useEffect(() => {
@@ -26,18 +26,20 @@ export default function Home() {
 
   return (
     <LoadingScreen>
-      <NavColorProvider>
-        <main id="root-layout" className="overflow-y-auto scroll-smooth">
-          <Header />
-          <Hero3d />
-          <RootSkeleton />
-          <About />
-          <Services />
-          <Works />
-          <TestimonialCarousel />
-          <Footer />
-        </main>
-      </NavColorProvider>
+      <CursorContextProvider>
+        <NavColorProvider>
+          <main id="root-layout" className="overflow-y-auto scroll-smooth">
+            <Header />
+            <Hero />
+            <RootSkeleton />
+            <About />
+            <Services />
+            <Works />
+            <TestimonialCarousel />
+            <Footer />
+          </main>
+        </NavColorProvider>
+      </CursorContextProvider>
     </LoadingScreen>
   );
 }

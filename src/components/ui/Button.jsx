@@ -4,7 +4,7 @@ export const Button = ({ id, title, rightIcon, leftIcon, containerClass, hoverCo
 			id={id}
 			onClick={onClick}
 			className={
-				`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full px-7 my-3 ${containerClass} `}
+				`group relative z-10 w-fit overflow-hidden rounded-full px-7 my-3 ${containerClass} `}
 		>
 			{leftIcon}
 
@@ -28,7 +28,7 @@ export const ButtonLeft = ({ id, title, rightIcon, leftIcon, containerClass, hov
 			id={id}
 			onClick={onClick}
 			className={
-				`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full px-7 ${containerClass} `}
+				`group relative z-10 w-fit overflow-hidden rounded-full px-7 ${containerClass} `}
 		>
 			{leftIcon}
 
@@ -52,7 +52,7 @@ export const ButtonCenter = ({ id, title, rightIcon, leftIcon, containerClass, h
 			id={id}
 			onClick={onClick}
 			className={
-				`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full px-7 ${containerClass} `}
+				`group relative z-10 w-fit overflow-hidden rounded-full px-7 ${containerClass} `}
 		>
 			{leftIcon}
 

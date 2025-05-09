@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useNavColor } from "@/contexts/NavColorProvider";
+import { useCursorContext } from "@/contexts/CursorProvider";
 
 // Make sure to register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -14,6 +15,7 @@ export default function Hero() {
 	const ref = useRef(null);
 	const { scrollY } = useScroll();
 	const { setColor } = useNavColor();
+	const { setScale } = useCursorContext();
 
 	useMotionValueEvent(scrollY, "change", (latest) => {
 		const secTop = ref?.current?.offsetTop;
@@ -67,14 +69,17 @@ export default function Hero() {
 		>
 			{/* Fixed Text Content */}
 			<div className="absolute inset-0 flex flex-col justify-center z-10">
-				<div className="container mx-auto px-4">
+				<div
+					className="container mx-auto px-4 zoom-hover"
+					onMouseEnter={() => setScale(6)}
+					onMouseLeave={() => setScale(1)}
+				>
 					<h1 className="text-center text-6xl md:text-9xl font-vogue">
 						Fueling the future
 					</h1>
 					<h1 className="text-center text-6xl md:text-9xl mb-8 font-bebas-neue">
 						with fearless creativity.
 					</h1>
-
 				</div>
 			</div>
 

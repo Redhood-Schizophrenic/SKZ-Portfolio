@@ -1,6 +1,8 @@
-export default function Text({ title, containerClass, hoverColor = 'text-foreground' }) {
+export default function Text({ title, containerClass, hoverColor = 'text-foreground', onMouseEnter, onMouseLeave }) {
 	return (
 		<h1
+			onMouseEnter={onMouseEnter}
+			onMouseLeave={onMouseLeave}
 			className={`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full px-7 my-3 ${containerClass} `}
 		>
 			<span className={`relative inline-flex overflow-hidden hover:${hoverColor}`}>

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Lenis from '@studio-freight/lenis'
 import { useTransform, useScroll, motion } from 'framer-motion';
+import { useCursorContext } from "@/contexts/CursorProvider";
 
 const images = [
 	"1.jpg",
@@ -20,7 +21,7 @@ const images = [
 ]
 
 export default function Works() {
-
+	const { setScale } = useCursorContext();
 	const gallery = useRef(null);
 	const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
@@ -58,7 +59,13 @@ export default function Works() {
 	return (
 		<section className="min-h-screen w-full">
 			<div className='h-screen w-full flex items-center justify-center'>
-				<h1 className="py-20 px-10 font-bebas-neue text-9xl text-center">Our Works</h1>
+				<h1
+					onMouseEnter={() => setScale(5)}
+					onMouseLeave={() => setScale(1)}
+					className="py-20 px-10 font-bebas-neue text-9xl text-center"
+				>
+					Our Works
+				</h1>
 			</div>
 			<div className="h-[10dvh]"></div>
 			<div ref={gallery} className="h-[175vh] bg-neutral-800 relative flex gap-8 p-8 box-border overflow-hidden">
@@ -72,6 +79,7 @@ export default function Works() {
 }
 
 const Column = ({ images, y }) => {
+	const { setScale } = useCursorContext();
 	return (
 		<motion.div
 			className="relative h-full w-1/4 md:min-w-[250px] min-w-[160px] flex flex-col gap-8"
@@ -85,7 +93,12 @@ const Column = ({ images, y }) => {
 			{
 				images.map((src, i) => {
 					return (
-						<div key={i} className="h-full w-full relative rounded-lg overflow-hidden">
+						<div
+							key={i}
+							className="h-full w-full relative rounded-lg overflow-hidden"
+							onMouseEnter={() => setScale(3)}
+							onMouseLeave={() => setScale(1)}
+						>
 							<Image
 								src={`/works/sample/${src}`}
 								alt='image'

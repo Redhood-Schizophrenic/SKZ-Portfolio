@@ -4,8 +4,10 @@ import { useEffect } from 'react';
 import RippleEffect from '../animations/images/RippleEffect';
 import { mainLinks, navLinks } from '@/constants/navLinks';
 import { ButtonLeft, Button, ButtonCenter } from '../ui/Button';
+import { useCursorContext } from "@/contexts/CursorProvider";
 
 export default function Navbar({ onClose, isOpen }) {
+	const { setScale } = useCursorContext();
 	useEffect(() => {
 		if (!isOpen) {
 			const timer = setTimeout(() => onClose(), 500); // Match the slide-up duration
@@ -22,6 +24,8 @@ export default function Navbar({ onClose, isOpen }) {
 				<button
 					onClick={onClose}
 					className="md:text-3xl text-base"
+					onMouseEnter={() => setScale(4)}
+					onMouseLeave={() => setScale(1)}
 				>
 					Close
 				</button>
@@ -40,7 +44,11 @@ export default function Navbar({ onClose, isOpen }) {
 						height={'50%'}
 						className={'mt-[10%]'}
 					/>
-					<div className="flex flex-col">
+					<div
+						className="flex flex-col"
+						onMouseEnter={() => setScale(4)}
+						onMouseLeave={() => setScale(1)}
+					>
 						{
 							mainLinks.map((item, index) => (
 								<Link
@@ -58,7 +66,11 @@ export default function Navbar({ onClose, isOpen }) {
 						</div>
 					</div>
 				</div>
-				<div className='h-full w-full flex flex-col justify-center pr-10'>
+				<div
+					className='h-full w-full flex flex-col justify-center pr-10'
+					onMouseEnter={() => setScale(4)}
+					onMouseLeave={() => setScale(1)}
+				>
 					{
 						navLinks.map((item, index) => (
 							<Link
